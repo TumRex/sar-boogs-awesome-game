@@ -1,7 +1,5 @@
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
-    rainbowie.ay = -500
-    pause(650)
-    rainbowie.ay = 400
+    rainbowie.y += -30
 })
 sprites.onOverlap(SpriteKind.Food, SpriteKind.Enemy, function (sprite, otherSprite) {
     trophy.destroy()
@@ -40,7 +38,7 @@ sprites.onOverlap(SpriteKind.Food, SpriteKind.Enemy, function (sprite, otherSpri
         ...........f555f................
         ...........fffff................
         `, SpriteKind.Food)
-    trophy.setPosition(randint(150, 175), 110)
+    trophy.setPosition(randint(150, 175), ypositions._pickRandom())
     trophy.setVelocity(-30, 0)
 })
 sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (sprite2, otherSprite2) {
@@ -83,7 +81,7 @@ sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (sprite2, otherSp
         ...........f555f................
         ...........fffff................
         `, SpriteKind.Food)
-    trophy.setPosition(randint(140, 175), 110)
+    trophy.setPosition(randint(140, 175), ypositions._pickRandom())
     trophy.setVelocity(-30, 0)
     if (50 < points) {
         game.over(true)
@@ -96,19 +94,23 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player, function (sprite3, o
     music.smallCrash.play()
     pause(1000)
     ghostie = sprites.create(assets.image`Ghost S`, SpriteKind.Projectile)
-    ghostie.setPosition(randint(90, 80), 140)
+    ghostie.setPosition(randint(90, 80), ypositions._pickRandom())
     ghostie.setVelocity(-30, 0)
     if (-10 > points) {
         game.over(false)
     }
 })
+controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
+    rainbowie.y += 30
+})
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     ghostie.destroy()
     pause(1000)
     ghostie = sprites.create(assets.image`Ghost S`, SpriteKind.Projectile)
-    ghostie.setPosition(randint(90, 80), 140)
+    ghostie.setPosition(randint(90, 80), ypositions._pickRandom())
     ghostie.setVelocity(-30, 0)
 })
+let ypositions: number[] = []
 let ghostie: Sprite = null
 let rainbowie: Sprite = null
 let trophy: Sprite = null
@@ -800,6 +802,7 @@ scene.cameraFollowSprite(rainbowie)
 rainbowie.setStayInScreen(true)
 ghostie.setVelocity(-30, 0)
 trophy.setVelocity(-30, 0)
+ypositions = [110, 140]
 forever(function () {
     music.playMelody("C E D - D - D - ", 100)
 })

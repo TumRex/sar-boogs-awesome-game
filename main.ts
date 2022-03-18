@@ -83,7 +83,7 @@ sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (sprite2, otherSp
         `, SpriteKind.Food)
     trophy.setPosition(randint(180, 200), ypositions._pickRandom())
     trophy.setVelocity(-240, 0)
-    if (5 < points) {
+    if (4 < points) {
         game.over(true)
     }
 })

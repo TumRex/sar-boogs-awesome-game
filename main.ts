@@ -1,9 +1,7 @@
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     rainbowie.ay = -500
     pause(650)
-    rainbowie.ay = 1000
-    pause(650)
-    rainbowie.ay = 0
+    rainbowie.ay = 400
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite3, otherSprite3) {
     ghostie.destroy()

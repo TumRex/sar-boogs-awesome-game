@@ -1,5 +1,5 @@
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
-    rainbowie.setPosition(25, 80)
+    rainbowie.setPosition(70, 70)
 })
 sprites.onOverlap(SpriteKind.Food, SpriteKind.Enemy, function (sprite, otherSprite) {
     trophy.destroy()
@@ -38,8 +38,8 @@ sprites.onOverlap(SpriteKind.Food, SpriteKind.Enemy, function (sprite, otherSpri
         ...........f555f................
         ...........fffff................
         `, SpriteKind.Food)
-    trophy.setPosition(randint(150, 175), ypositions._pickRandom())
-    trophy.setVelocity(-30, 0)
+    trophy.setPosition(randint(180, 200), ypositions._pickRandom())
+    trophy.setVelocity(-240, 0)
 })
 sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (sprite2, otherSprite2) {
     trophy.destroy()
@@ -81,8 +81,8 @@ sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (sprite2, otherSp
         ...........f555f................
         ...........fffff................
         `, SpriteKind.Food)
-    trophy.setPosition(randint(140, 175), ypositions._pickRandom())
-    trophy.setVelocity(-30, 0)
+    trophy.setPosition(randint(180, 200), ypositions._pickRandom())
+    trophy.setVelocity(-240, 0)
     if (9 < points) {
         game.over(true)
     }
@@ -94,21 +94,21 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player, function (sprite3, o
     music.smallCrash.play()
     pause(1000)
     ghostie = sprites.create(assets.image`Ghost S`, SpriteKind.Projectile)
-    ghostie.setPosition(randint(90, 80), ypositions._pickRandom())
-    ghostie.setVelocity(-30, 0)
+    ghostie.setPosition(randint(210, 220), ypositions._pickRandom())
+    ghostie.setVelocity(-240, 0)
     if (1 > points) {
         game.over(false)
     }
 })
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
-    rainbowie.setPosition(25, 100)
+    rainbowie.setPosition(70, 111)
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     ghostie.destroy()
     pause(1000)
     ghostie = sprites.create(assets.image`Ghost S`, SpriteKind.Projectile)
-    ghostie.setPosition(randint(90, 80), ypositions._pickRandom())
-    ghostie.setVelocity(-30, 0)
+    ghostie.setPosition(randint(210, 220), ypositions._pickRandom())
+    ghostie.setVelocity(-240, 0)
 })
 let ypositions: number[] = []
 let ghostie: Sprite = null
@@ -630,8 +630,8 @@ let thing = sprites.create(img`
     1111111111
     `, SpriteKind.Enemy)
 thing.setPosition(1, 60)
-points = 1
-info.setScore(1)
+points = 2
+info.setScore(2)
 game.setDialogFrame(img`
     999999999999999999999999999999999999999999999999
     999988899999999999998889999999999999888999999999
@@ -841,15 +841,13 @@ trophy = sprites.create(img`
     ...........fffff................
     `, SpriteKind.Food)
 rainbowie = sprites.create(assets.image`Rainbow S`, SpriteKind.Player)
-rainbowie.setScale(2, ScaleAnchor.Left)
 ghostie = sprites.create(assets.image`Ghost S`, SpriteKind.Projectile)
 ghostie.setPosition(150, 110)
-rainbowie.setPosition(25, 100)
+rainbowie.setPosition(75, 110)
 trophy.setPosition(200, 80)
-rainbowie.setStayInScreen(false)
-ghostie.setVelocity(-30, 0)
-trophy.setVelocity(-30, 0)
+ghostie.setVelocity(-240, 0)
+trophy.setVelocity(-240, 0)
 ypositions = [80, 110]
 forever(function () {
-    music.playMelody("C E D - D - D - ", 100)
+    music.playMelody("C C E D - D - D ", 250)
 })

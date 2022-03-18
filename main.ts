@@ -11,14 +11,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite3, o
         game.over(false)
     }
     music.smallCrash.play()
-    pause(200)
     ghostie = sprites.create(assets.image`Ghost S`, SpriteKind.Projectile)
     ghostie.setPosition(randint(90, 80), randint(90, 115))
     ghostie.setVelocity(-30, 0)
 })
 sprites.onOverlap(SpriteKind.Food, SpriteKind.Enemy, function (sprite, otherSprite) {
     trophy.destroy()
-    pause(100)
     trophy = sprites.create(img`
         ................................
         ................................
@@ -62,7 +60,6 @@ sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (sprite2, otherSp
     points += 1
     info.changeScoreBy(1)
     music.baDing.play()
-    pause(100)
     trophy = sprites.create(img`
         ................................
         ................................

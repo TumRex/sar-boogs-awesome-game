@@ -91,7 +91,7 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player, function (sprite3, o
     ghostie.destroy()
     points += -1
     info.changeScoreBy(-1)
-    music.smallCrash.play()
+    music.sonar.play()
     pause(1000)
     ghostie = sprites.create(assets.image`Ghost S`, SpriteKind.Projectile)
     ghostie.setPosition(randint(210, 220), ypositions._pickRandom())

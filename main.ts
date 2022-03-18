@@ -83,20 +83,20 @@ sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (sprite2, otherSp
         `, SpriteKind.Food)
     trophy.setPosition(randint(140, 175), ypositions._pickRandom())
     trophy.setVelocity(-30, 0)
-    if (50 < points) {
+    if (9 < points) {
         game.over(true)
     }
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player, function (sprite3, otherSprite3) {
     ghostie.destroy()
-    points += -0.5
-    info.changeScoreBy(-0.5)
+    points += -1
+    info.changeScoreBy(-1)
     music.smallCrash.play()
     pause(1000)
     ghostie = sprites.create(assets.image`Ghost S`, SpriteKind.Projectile)
     ghostie.setPosition(randint(90, 80), ypositions._pickRandom())
     ghostie.setVelocity(-30, 0)
-    if (-10 > points) {
+    if (1 > points) {
         game.over(false)
     }
 })
@@ -756,7 +756,7 @@ scene.setBackgroundImage(img`
     8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888
     `)
 scene.setBackgroundColor(7)
-game.splash("use arrow keys to control")
+game.splash("Go up and down to get trophies and escape ghosts...\"")
 game.splash("if you hit the ghost you lose a point, if you touch the trophy you get a point. If you get to zero points you lose. If you get to 5 points you win!")
 trophy = sprites.create(img`
     ................................

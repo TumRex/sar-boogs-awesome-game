@@ -1,5 +1,5 @@
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
-    rainbowie.y += -30
+    rainbowie.setPosition(25, 80)
 })
 sprites.onOverlap(SpriteKind.Food, SpriteKind.Enemy, function (sprite, otherSprite) {
     trophy.destroy()
@@ -101,7 +101,7 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player, function (sprite3, o
     }
 })
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
-    rainbowie.y += 30
+    rainbowie.setPosition(25, 100)
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     ghostie.destroy()
@@ -632,7 +632,6 @@ let thing = sprites.create(img`
 thing.setPosition(1, 60)
 points = 1
 info.setScore(1)
-tiles.setCurrentTilemap(tilemap`level8`)
 scene.setBackgroundImage(img`
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -755,7 +754,6 @@ scene.setBackgroundImage(img`
     8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888889999999999999999999999966666666666666688888888
     8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888
     `)
-scene.setBackgroundColor(7)
 game.splash("Go up and down to get trophies and escape ghosts...\"")
 game.splash("if you hit the ghost you lose a point, if you touch the trophy you get a point. If you get to zero points you lose. If you get to 5 points you win!")
 trophy = sprites.create(img`
@@ -795,14 +793,13 @@ trophy = sprites.create(img`
 rainbowie = sprites.create(assets.image`Rainbow S`, SpriteKind.Player)
 rainbowie.setScale(2, ScaleAnchor.Left)
 ghostie = sprites.create(assets.image`Ghost S`, SpriteKind.Projectile)
-ghostie.setPosition(150, 140)
-rainbowie.setPosition(25, 140)
-trophy.setPosition(200, 110)
-scene.cameraFollowSprite(rainbowie)
-rainbowie.setStayInScreen(true)
+ghostie.setPosition(150, 110)
+rainbowie.setPosition(25, 100)
+trophy.setPosition(200, 80)
+rainbowie.setStayInScreen(false)
 ghostie.setVelocity(-30, 0)
 trophy.setVelocity(-30, 0)
-ypositions = [110, 140]
+ypositions = [80, 110]
 forever(function () {
     music.playMelody("C E D - D - D - ", 100)
 })

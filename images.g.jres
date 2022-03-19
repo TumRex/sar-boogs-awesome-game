@@ -9,6 +9,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Ghost S"
     },
+    "image3": {
+        "data": "hwQQABAAAAAzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzP/////MzMzMz////8zMzMzPzMz/zMz8/8/P//zMzPzPz8z8/MzM/M/PzP/8zMz8/8/MzPzMzMzMz/zM/MzMzMz/zMz/zMzMzP/8///MzMzM/////8zMzMzMzMzMzMzMzMzMzMzMw==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "myImage"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",

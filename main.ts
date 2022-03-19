@@ -39,7 +39,7 @@ sprites.onOverlap(SpriteKind.Food, SpriteKind.Enemy, function (sprite, otherSpri
         ...........fffff................
         `, SpriteKind.Food)
     trophy.setPosition(randint(180, 200), ypositions._pickRandom())
-    trophy.setVelocity(-240, 0)
+    trophy.setVelocity(speed, 0)
 })
 sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (sprite2, otherSprite2) {
     trophy.destroy()
@@ -82,7 +82,7 @@ sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (sprite2, otherSp
         ...........fffff................
         `, SpriteKind.Food)
     trophy.setPosition(randint(180, 200), ypositions._pickRandom())
-    trophy.setVelocity(-240, 0)
+    trophy.setVelocity(speed, 0)
     if (4 < points) {
         game.over(true)
     }
@@ -95,7 +95,7 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player, function (sprite3, o
     pause(1000)
     ghostie = sprites.create(assets.image`Ghost S`, SpriteKind.Projectile)
     ghostie.setPosition(randint(210, 220), ypositions._pickRandom())
-    ghostie.setVelocity(-240, 0)
+    ghostie.setVelocity(speed, 0)
     if (1 > points) {
         game.over(false)
     }
@@ -108,13 +108,20 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, oth
     pause(1000)
     ghostie = sprites.create(assets.image`Ghost S`, SpriteKind.Projectile)
     ghostie.setPosition(randint(210, 220), ypositions._pickRandom())
-    ghostie.setVelocity(-240, 0)
+    ghostie.setVelocity(speed, 0)
 })
 let ypositions: number[] = []
 let ghostie: Sprite = null
 let rainbowie: Sprite = null
 let trophy: Sprite = null
 let points = 0
+let speed = 0
+let Level = game.askForNumber("\"For Easy, press 1, For Hard, press 2.", 1)
+if (Level == 1) {
+    speed = -50
+} else {
+    speed = -240
+}
 let thing = sprites.create(img`
     1111111111
     1111111111
@@ -845,8 +852,8 @@ ghostie = sprites.create(assets.image`Ghost S`, SpriteKind.Projectile)
 ghostie.setPosition(150, 110)
 rainbowie.setPosition(75, 110)
 trophy.setPosition(200, 80)
-ghostie.setVelocity(-240, 0)
-trophy.setVelocity(-240, 0)
+ghostie.setVelocity(speed, 0)
+trophy.setVelocity(speed, 0)
 ypositions = [80, 110]
 forever(function () {
     music.playMelody("C C E D - D - D ", 250)

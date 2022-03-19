@@ -856,5 +856,5 @@ ghostie.setVelocity(speed, 0)
 trophy.setVelocity(speed, 0)
 ypositions = [80, 110]
 forever(function () {
-    music.playMelody("C C E D - D - D ", 250)
+    music.playMelody("G G B B G E E B ", 128)
 })
